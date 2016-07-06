@@ -1,0 +1,26 @@
+
+{% extends "base.html.twig" %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}  
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="text-center">
+                <h1>Gifts</h1></br>
+                <h4>Come with us</h4>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="col-md-2 col-md-offset-5">
+    </br></br></br></br>
+            	<a class="btn btn-primary" type="button" href="{{path('fos_user_registration_register') }}">Log up</a></br>
+
+                <a class="btn btn-default" type="button" href="{{path('fos_user_security_login') }}">Log in</a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Add a participant {% endblock %}
+
+{% block body %} 
+
+        <div>
+	    	<div class="col-md-4">
+	        	<div class="text-center">
+	            	<h1>Add a participant</h1>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <div class="col-md-4 col-md-offset-4">
+                {% for message in app.session.flashbag.get('info') %}
+                    <h3>{{ message }}</h3>
+                {% endfor %}  
+                </br></br>
+            </div>
+        </div>
+
+        <div>
+            <div class="col-md-4 col-md-offset-4">
+                    {{ form(form) }}
+                </br></br>
+	       	</div>
+    	</div>
+{% endblock %}

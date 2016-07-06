@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        
+        <!-- Bootstrap -->
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="{{ asset('bootstrap/css/bootstrap-theme.css') }}" rel="stylesheet">
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{{path('acme_blog_home') }}">Gifts</a>
+            </div>
+            <ul class="nav navbar-nav">
+              {% block active %}
+              <li><a href="{{path('acme_blog_list_event') }}">Events</a></li>
+              {% endblock %}
+              <!--li class="active"><a href="#">An event</a></li-->
+            </ul>
+            <div class="navbar-brand navbar-right">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                Hi {{app.user.firstname}} !
+                   <a href="{{ path('fos_user_security_logout') }}">
+                    Logout
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}"> Log in </a>
+                {% endif %}
+            </div>
+          </div>
+        </nav>
+        
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+    
+</html>

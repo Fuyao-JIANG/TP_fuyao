@@ -1,0 +1,61 @@
+
+{% extends "base.html.twig" %}
+
+{% block title %} {{ event.name | e }} {% endblock %}
+
+{% block body %}  
+{% if app.session.flashbag.get('info') %}
+        <div>
+            <div class="col-md-4 col-md-offset-4">
+                {% for message in app.session.flashbag.get('info') %}
+                    <h3>{{ message }}</h3>
+                {% endfor %}  
+                </br></br>
+            </div>
+        </div>
+{% endif %}
+        <div>
+            <div class="col-md-4 col-md-offset-4">
+	        	<div class="text-center">
+	            	<h1>{{ event.name | e }}</h1>
+                    The owner is {{ owner }} and the participants are:
+                    
+                        
+                            <div class="list-group"></br>
+                                {% for participant in participants %}
+                                
+                                    <div class="list-group-item">{{ participant.firstname|e }}
+                                    {{ participant.lastname|e }} </div>
+                                
+                                {% endfor %}
+                            </div>
+	        	</div>
+    		</div>
+		</div>
+ 
+        <div>
+            <div class="col-md-4 col-md-offset-4">
+                <a class="btn btn-primary" href="{{path('acme_blog_add_participant', { 'id': event.id}) }}">Add a participant</a>
+            </br>
+            </div>
+        </div>
+
+        {% if owner == user %}
+        <div>
+            <div class="col-md-4 col-md-offset-4">
+                <a class="btn btn-success btn-block" href="{{path('acme_blog_add_event', {'id': event.id}) }}">Start the distribution</a>
+            </div>
+        </div>
+        {% endif %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

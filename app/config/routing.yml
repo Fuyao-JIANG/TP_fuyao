@@ -1,0 +1,39 @@
+acme_blog:
+    resource: "@AcmeBlogBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+acme_blog_home:
+    path:   /
+    defaults:  { _controller: AcmeBlogBundle:HomePage }
+
+acme_blog_add_event:
+    path:   /add-event
+    defaults:  { _controller: AcmeBlogBundle:AddEvent }
+
+acme_blog_list_event:
+    path:   /mes-evenements
+    defaults:  { _controller: AcmeBlogBundle:MesEvenements }
+
+acme_blog_an_event:
+    path:   /mes-evenements/{id}
+    defaults:   { _controller: AcmeBlogBundle:AnEvent }
+
+acme_blog_add_participant:
+    path:   /mes-evenements/{id}/add-participant
+    defaults:  { _controller: AcmeBlogBundle:AddParticipant }
+
+acme_blog_distribution:
+    path: /mes-evenements/{id}/acme_blog_distribution
+    defaults:  { _controller: AcmeBlogBundle:Distribution }
+
+event_shared_url:
+    path: /mes-evenements/{id}/{shared_token}
+    defaults:   { _controller: AcmeBlogBundle:AddParticipant }
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"

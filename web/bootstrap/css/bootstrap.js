@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/www/anonymous-gift/vendor/twitter/bootstrap/docs/dist/js/bootstrap.js

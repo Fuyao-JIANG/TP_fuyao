@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Events {% endblock %}
+
+
+{% block active %}
+    <li class="active"><a href="{{path('acme_blog_list_event') }}">My events</a></li>
+{% endblock %}
+{% block body %} 
+    
+        <div>
+	    	<div class="col-md-4 col-md-offset-4">
+	        	<div class="text-center">
+	            	<h1>Events</h1>
+                    My name is {{ user }} and my events are 
+                    <div class="list-group">
+                        {% for event in listEvents %}
+                        
+                            <a href="{{path('acme_blog_an_event', { 'id': event.id}) }}" class="list-group-item">{{ event.name|e }}</a>
+                        
+                        {% endfor %}
+                    </div>
+	        	</div>
+    		</div>
+		</div>
+        <div>
+            <div class="col-md-4 col-md-offset-4">
+                <a class="btn btn-primary" href="{{path('acme_blog_add_event')}}">Add a event</a>
+            </div>
+        </div>
+
+{% endblock %}
